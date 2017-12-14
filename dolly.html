@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>dolly</title>
+  <script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
+</head>
+
+<body>
+
+  <label>
+    <input type='radio' name='instituicao' value='1' /> Sim
+  </label>
+  <label>
+    <input type='radio' name='instituicao' value='0' /> Não
+  </label>
+
+  <p></p>
+
+  <div class='js-instituicao'>
+    <script type="x/template">
+      <div>
+        <b>Olá, instituição!</b>
+      </div>
+    </script>
+    <div data-dolly='container'></div>
+    <button data-dolly='do'>Adicionar</button>
+  </div>
+
+  <hr />
+
+  <div class='js-creche'>
+    <script type="x/template">
+      <div>
+        <b>Olá, creche!</b>
+        <button data-dolly='kill'>Remover</button>
+      </div>
+    </script>
+    <div data-dolly='container'></div>
+    <button data-dolly='do'>Adicionar</button>
+  </div>
+
+  <script src='./dolly.js'></script>
+  <script>
+    var $instituicao = $('.js-instituicao')
+    $('input[name="instituicao"]').on('change', function () {
+      $instituicao.dolly(this.value === '1' ? 'clone' : 'destroy')
+    })
+    $('.js-creche').dolly()
+  </script>
+</body>
+
+</html>

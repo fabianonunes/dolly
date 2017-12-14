@@ -1,0 +1,6 @@
+node_modules
+dist
+.idea
+.vscode
+*.mp4
+*.MP4
